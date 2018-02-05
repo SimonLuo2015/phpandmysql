@@ -55,24 +55,24 @@
                         </td>
                     </tr>
                 </table>
-        <?php
+<?php
     }
 
     function do_html_footer(){
         // print an HTML footer
         global $table_width;
-        ?>
+?>
         <table width=<?php echo $table_width?> cellpadding=4 cellspacing=0 bgcolor="#cccccc">
             <tr>
                 <td><strong>Replies to this message</strong></td>
             </tr>
         </table>
-        <?php
+<?php
     }
 
     function display_index_toolbar(){
         global $table_width;
-        ?>
+?>
         <table width=<?php echo $table_width?> cellpadding=4 cellspacing=0>
             <tr>
                 <td bgcolor="#cccccc" align="right">
@@ -85,7 +85,7 @@
                 </td>
             </tr>
         </table>
-        <?php
+<?php
     }
 
     function display_post($post){
@@ -93,7 +93,7 @@
         if (!$post){
             return;
         }
-        ?>
+?>
         <table width=<?php echo $table_width?> cellpadding=4 cellspacing=0>
             <tr>
                 <td bgcolor="#cccccc">
@@ -118,12 +118,12 @@
                 </td>
             </tr>
         </table>
-        <?php
+<?php
     }
 
     function display_new_post_form($parent=0, $area=1, $title='', $message='', $poster=''){
         global $table_width;
-        ?>
+?>
         <table cellpadding=0 cellspacing=0 border=0 width=<?php echo $table_width; ?>>
             <form action="store_new_post.php?expand=<?php echo $parent;?>#<?php echo $parent;?>" method="post">
                 <tr>
@@ -155,6 +155,6 @@
                 </tr>
             </form>
         </table>
-    <?php
+<?php
     }
-    ?>
+?>
