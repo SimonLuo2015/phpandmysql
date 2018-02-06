@@ -52,11 +52,43 @@ class treenode{
 
         // If this is the empty root node, skip displaying.
         if ($this->m_depth > -1){
-            
+            // color alternate rows.
+            echo "<tr><td bgcolor=\"";
+            if ($row%2){
+                echo "#cccccc\">";
+            }else{
+                echo "#ffffff\">";
+            }
+            // indent replies to the depth of nesting.
+            for($i=0; $i<$this->m_depth; $i++){
+                echo "<img src=\"images/spacer.gif\" height=\"22\" width=\"22\" alt=\"\" valign=\"bottom\" />";
+            }
+            // display + or - or a spacer
+            if((!$sublist) && ($this->m_children) && (sizeof($this->m_childlist))){
+                // we are on the main page, have some children, and they're expanded,
+                // we are expanded - offer button to collapse.
+                echo "<a href=\"index.php?collapse=".$this->m_postid."#".$this->m_postid."\">
+                    <img src=\"images/minus.gif\" valign=\"bottom\" height=\"22\" width=\"22\" 
+                    alt=\"Collapse Thread\" border=\"0\" /></a>\n";
+            } else if(!$sublist &&  $this->m_children ){
+                // we are collapsed = offer button to expand.
+                echo "<a href= 'index.php?expand=".$this->m_postid."#$this->m_postid'><img src='images/plus.gif' height=22 width=22 alt='Expand Thread' border=0></a>";
+            } else {
+                // we have no children, or are in  a sublist, do not give button.
+                echo "<img src='images/spacer.gif' height=22 width=22 alt='' valign='bottom' />";
+            }
+            echo "<a name=$this->m_postid><a href='view_post.php?postid=$this->m_postid'>
+                    $this->m_title - $this->m_poster -".reformat_date($this->m_posted).'</a>';
+            // increment row counter to alternate colors
+            $row++;
         }
-
-
+        // call display on each of this node's children
+        // note a node will only have children in its list if expanded.
+        $num_children = sizeof($this->m_childlist);
+        for ($i=0; $i<$num_children; $i++){
+            $row = $this->m_childlist[$i]->display($row, $sublist);
+        }
+        return $row;
     }
 }
-
 ?>
