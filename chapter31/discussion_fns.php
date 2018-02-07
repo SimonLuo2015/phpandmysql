@@ -108,6 +108,23 @@ function store_new_post($post){
     // find our post id, note that there could be multiple headers
     // that are the same except for id and probably posted time.
     $query = "select header.postid from header left join body on header.postid=body.postid 
-                where parent="
-
+                where parent='".$post['parent']."' and poster='".$post['poster']."' and title='".$post['title']."' and body.postid is NULL";
+    $result = $conn->query($query);
+    if (!$result){
+        return false;
+    }
+    if ($result->num_rows > 0){
+        $this_row = $result->fetch_array();
+        $id = $this_row[0];
+    }
+    if($id){
+        $query = "insert into body values ($id, '".$post['message']."')";
+        $result = $conn->query($query);
+        if(!$result){
+            return false;
+        }
+        echo 'id='.$id.'<br />';
+        return $id;
+    }
 }
+?>
