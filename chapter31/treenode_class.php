@@ -21,7 +21,7 @@ class treenode{
         $this->m_poster = $poster;
         $this->m_posted = $posted;
         $this->m_children = $children;
-        $this->m_childlist = $array();
+        $this->m_childlist = array();
         $this->m_depth = $depth;
         // we only care what is below this node if it
         // has children and is marked to be expanded
