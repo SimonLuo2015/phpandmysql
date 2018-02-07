@@ -76,7 +76,7 @@
         <table width=<?php echo $table_width?> cellpadding=4 cellspacing=0>
             <tr>
                 <td bgcolor="#cccccc" align="right">
-                    <a href="new_post?parent=0">
+                    <a href="new_post.php?parent=0">
                         <img src="images/new-post.gif" border=0 width=99 height=39 alt="">
                     </a>
                     <a href="index.php?expand=all">
