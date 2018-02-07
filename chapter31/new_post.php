@@ -36,6 +36,7 @@
     if(@$error){
         echo "<p>Your message was not stored.</p>
                 <p>Make sure you have filled in all fields and try again.</p>";
+        echo $error;
     }
     do_html_footer();
 ?>
