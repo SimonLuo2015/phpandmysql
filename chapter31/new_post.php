@@ -9,7 +9,7 @@
         $parent = $_POST['parent'];
     }
     if (!@$area){
-        $are = 1;
+        $area = 1;
     }
     if (!@$error){
         if(!$parent){
