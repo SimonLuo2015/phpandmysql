@@ -122,6 +122,7 @@ function store_new_post($post){
     if (!$result){
         return false;
     }
+
     // find our post id, note that there could be multiple headers
     // that are the same except for id and probably posted time.
     $query = "select header.postid from header left join body on header.postid=body.postid 
@@ -134,6 +135,7 @@ function store_new_post($post){
         $this_row = $result->fetch_array();
         $id = $this_row[0];
     }
+    
     if($id){
         $query = "insert into body values ($id, '".$post['message']."')";
         $result = $conn->query($query);

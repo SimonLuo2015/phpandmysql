@@ -3,6 +3,8 @@
     $title = @$_POST['title'];
     $poster = @$_POST['poster'];
     $message = @$_POST['message'];
+
+    // echo $title, $poster, $message;
     if (isset($_GET['parent'])){
         $parent = $_GET['parent'];
     }else{
