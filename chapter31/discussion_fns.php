@@ -21,14 +21,14 @@ function get_post($postid){
     }
     $conn = db_connect();
     // get all header information from 'header'.
-    $query = "select * from header where postid='$postid'";
+    $query = "select * from header where postid='".$postid."'";
     $result = $conn->query($query);
     if ($result->num_rows != 1){
         return false;
     }
     $post = $result->fetch_assoc();
     // get message from body and add it to the prvious result.
-    $query = "select * from body where postid='$postid'";
+    $query = "select * from body where postid='".$postid."'";
     $result2 = $conn->query($query);
     if ($result2->num_rows > 0){
         $body = $result2->fetch_assoc();
@@ -44,14 +44,31 @@ function get_post_title($postid){
     if (!$postid){
         return '';
     }
+
     $conn = db_connect();
-    $query = "select message from body where postid='$postid'";
+    $query = "select title from header where postid='".$postid."'";
+    $result = $conn->query($query);
+    if ($result->num_rows != 1){
+        return '';
+    }
+    $this_row = $result->fetch_array();
+    return $this_row[0];
+}
+
+function get_post_message($postid){
+    // extract one post's message from the database.
+    if (!$postid){
+        return '';
+    }
+    $conn = db_connect();
+    $query = "select message from body where postid='".$postid."'";
     $result = $conn->query($query);
     if ($result->num_rows > 0){
         $this_row = $result->fetch_array();
         return $this_row[0];
     }
 }
+
 
 function add_quoting($string, $pattern='>'){
     // add a quoting pattern to mark text quoted in your replying.
