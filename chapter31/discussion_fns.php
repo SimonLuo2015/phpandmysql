@@ -98,10 +98,10 @@ function store_new_post($post){
     $query = "select header.postid from header, body 
                 where header.postid=body.postid and 
                 header.parent=".$post['parent']." and 
-                header.poster=".$post['poster']." and 
-                header.title=".$post['title']." and 
+                header.poster='".$post['poster']."' and 
+                header.title='".$post['title']."' and 
                 header.area=".$post['area']." and 
-                body.message=".$post['message'];
+                body.message='".$post['message']."'";
     $result = $conn->query($query);
     if (!$result){
         return false;
@@ -110,8 +110,8 @@ function store_new_post($post){
         $this_row = $result->fetch_array();
         return $this_row[0];
     }
-    // **********************
-    $query = "insert into header values (".$post['parent'].", ".$post['poster'].", ".$post['title'].", 0, ".$post['area'].", now(), NULL)";
+    // ********************** changed by the type of variables, add "" for int and string.
+    $query = "insert into header values ('".$post['parent']."', '".$post['poster']."', '".$post['title']."', 0, '".$post['area']."', now(), NULL)";
     $result = $conn->query($query);
     if (!$result){
         return false;
