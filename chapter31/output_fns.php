@@ -10,7 +10,7 @@
     function display_tree($expanded, $row = 0, $start = 0){
         // display the tree view of conversations
         global $table_width;
-        echo "<table width = $table_width>";
+        echo "<table width = \"".$table_width."\">";
         // see if we are displaying the whole list or a sublist
         if($start > 0){
             $sublist = true;
@@ -69,6 +69,17 @@
         </table>
 <?php
     }
+
+function display_replies_line(){
+    global $table_width;
+    ?>
+    <table width=<?php echo $table_width?> cellpadding=4 cellspacing=0 bgcolor="#cccccc">
+        <tr>
+            <td><strong>Replies to this message</strong></td>
+        </tr>
+    </table>
+    <?php
+}
 
     function display_index_toolbar(){
         global $table_width;
