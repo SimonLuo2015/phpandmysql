@@ -28,7 +28,7 @@ class treenode{
         // sublists are always expanded.
         if (($sublist || $expand) && ($children)){
             $conn = db_connect();
-            $query = "select * from header where parent=$postid order by posted";
+            $query = "select * from header where parent='".$postid."' order by posted";
             $result = $conn->query($query);
             for ($count=0; $row=@$result->fetch_assoc(); $count++){
                 if ($sublist || @$expanded[$row['postid']]==true){
