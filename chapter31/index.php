@@ -1,7 +1,7 @@
 <?php
     include ('include_fns.php');
     session_start();
-
+    
     // check if we have created our session variable
     if (!isset($_SESSION['expanded']))
     {
