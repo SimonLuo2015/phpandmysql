@@ -62,11 +62,15 @@
         // print an HTML footer
         global $table_width;
 ?>
-        <table width=<?php echo $table_width?> cellpadding=4 cellspacing=0 bgcolor="#cccccc">
+        <table width=<?php echo $table_width?> cellpadding=0 cellspacing=6>
             <tr>
-                <td><strong>Replies to this message</strong></td>
+                <td bgcolor="#3333cc" align="right">
+                    <img src="images/blah-blah.gif" width=98 height=45 alt="" valign="middle" />
+                </td>
             </tr>
         </table>
+        </body>
+        </html>
 <?php
     }
 
