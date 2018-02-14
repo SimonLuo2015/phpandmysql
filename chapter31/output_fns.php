@@ -97,6 +97,9 @@ function display_replies_line(){
                     <a href="index.php?expand=all">
                         <img src="images/expand.gif" border=0 width=99 height=39 alt="Expand All Threads">
                     </a>
+                    <a href="index.php?collapse=all">
+                        <img src="images/collapse.gif" border=0 width=99 height=39 alt="Collapse All Threads">
+                    </a>
                 </td>
             </tr>
         </table>
