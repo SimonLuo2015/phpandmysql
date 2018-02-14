@@ -153,7 +153,7 @@ function display_replies_line(){
                     </td>
                 </tr>
                 <tr>
-                    <td bgcolor="#cccccc">
+                    <td colspan=2 bgcolor="#cccccc">
                         <input type="text" name="title" value="<?php echo $title; ?>" size=20 maxlength=20>
                     </td>
                 </tr>
